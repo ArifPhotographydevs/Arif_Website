@@ -32,8 +32,8 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       <WeddingStoriesSection />
       <WeddingVideoGallerySection />
 
-      <TopPicks />
-      <Blog navigateTo={navigateTo} />
+      {/* <TopPicks /> */}
+      {/* <Blog navigateTo={navigateTo} /> */}
       <CreativeProcess />
       <OurApproach />
       <Awards />

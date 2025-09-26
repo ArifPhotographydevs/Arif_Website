@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -39,7 +38,7 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
       </div>
 
       {/* Trapezium-Shaped Video Frame */}
-      <div className="relative z-10 max-w-5xl mx-auto mt-12">
+      <div className="relative z-10 mx-auto mt-12 w-11/12">
         <div
           className="relative aspect-video overflow-hidden rounded-lg"
           style={{
@@ -56,11 +55,9 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
           />
           {/* Overlay Text on Video */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            {/* <div className="text-white text-4xl md:text-5xl font-serif uppercase font-medium tracking-widest bg-black/50 p-4 rounded-lg shadow-lg">
-              Soul + Cinema
-            </div> */}
+           
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 mix-blend-overlay"></div> {/* Blend with background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 mix-blend-overlay"></div>
         </div>
         <svg className="hidden">
           <clipPath id="trapezium-video-frame" clipPathUnits="objectBoundingBox">
@@ -73,8 +70,18 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 items-start">
           {/* Logo Text */}
+          <div className="text-center lg:text-left mt-8">
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-800 dark:text-dark-text font-medium uppercase tracking-wider">
+              Arif Photography
+            </h2>
+          </div>
 
           {/* Text Block */}
+          <div className="mt-8 text-center lg:text-left">
+            <p className="text-lg md:text-xl text-stone-700 dark:text-dark-text/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              We capture the essence of your love story with cinematic precision and soulful artistry. Our wedding films and photos are crafted to reflect your unique journey, blending emotion with elegance.
+            </p>
+          </div>
         </div>
 
         {/* Navigation Button */}

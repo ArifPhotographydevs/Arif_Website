@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface WeddingStoriesSectionProps {
@@ -9,9 +9,15 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
   const sectionRef = useRef<HTMLElement>(null);
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
 
-  // YouTube thumbnail URLs (maxresdefault for high quality)
-  const leftVideoThumbnail = 'https://img.youtube.com/vi/yNHXmQb8VMM/maxresdefault.jpg';
-  const rightVideoThumbnail = 'https://img.youtube.com/vi/NSC73lrIHlk/maxresdefault.jpg';
+  // Video data with YouTube video IDs
+  const leftVideo = { videoId: 'yNHXmQb8VMM', thumbnail: 'https://img.youtube.com/vi/yNHXmQb8VMM/maxresdefault.jpg', title: 'Love In Second Innings.', description: 'Second marriage, for many, is still a taboo. And this story illustrates why it\'s not. It\'s not a treatise on how the past doesn\'t come in the way of love and respect. It\'s a triumph over stereotypes and archaic customs. It\'s a story of how love can be made beautiful. That tears can be turned into a whirlwind of Deepak and Nisha\'s fear turned into the excitement of exploring the unknown: that the end is a new beginning.' };
+  const rightVideo = { videoId: 'NSC73lrIHlk', thumbnail: 'https://img.youtube.com/vi/NSC73lrIHlk/maxresdefault.jpg', title: 'Twenty Years in the Making', description: 'This one is special, very special. Hiba and Akbar\'s story took us all the way from Hiba\'s childhood till their reception in Bhopal and on the way we discovered an innovative way of filming a wedding. We knew from start that no matter how hard we try we could not fit their story in a 5 minute film, we tried for a year now and this hard we try now we can ever fit which is not in 5 minute film, but we India Pakistan story which is not India or Pak. For us much more than that. a wedding, an about wedding than us it is which for much all.' };
+
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const handlePlay = (videoId: string) => {
+    setPlayingVideo(videoId);
+  };
 
   return (
     <section
@@ -46,50 +52,82 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
           {/* Left Div - First Video Thumbnail */}
           <div className="relative z-10 py-8">
             <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg group cursor-pointer">
-              <img
-                src={leftVideoThumbnail}
-                alt="Love In Second Innings Thumbnail"
-                className="w-full h-full object-cover"
-              />
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
+              {playingVideo === leftVideo.videoId ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${leftVideo.videoId}?autoplay=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="aspect-video"
+                ></iframe>
+              ) : (
+                <>
+                  <img
+                    src={leftVideo.thumbnail}
+                    alt="Love In Second Innings Thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300"
+                    onClick={() => handlePlay(leftVideo.videoId)}
+                  >
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             <h3 className="mt-4 font-serif text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
-              Love In Second Innings.
+              {leftVideo.title}
             </h3>
             <p className="mt-2 text-light-text/80 dark:text-dark-text/80 leading-relaxed text-sm md:text-base text-center lg:text-left">
-              Second marriage, for many, is still a taboo. And this story illustrates why it's not. It's not a treatise on how the past doesn't come in the way of love and respect. It's a triumph over stereotypes and archaic customs. It's a story of how love can be made beautiful. That tears can be turned into a whirlwind of Deepak and Nisha's fear turned into the excitement of exploring the unknown: that the end is a new beginning.
+              {leftVideo.description}
             </p>
           </div>
 
           {/* Right Div - Second Video Thumbnail */}
           <div className="lg:-ml-16 relative lg:pt-16 py-8">
             <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg group cursor-pointer">
-              <img
-                src={rightVideoThumbnail}
-                alt="Twenty Years in the Making Thumbnail"
-                className="w-full h-full object-cover"
-              />
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
+              {playingVideo === rightVideo.videoId ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${rightVideo.videoId}?autoplay=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="aspect-video"
+                ></iframe>
+              ) : (
+                <>
+                  <img
+                    src={rightVideo.thumbnail}
+                    alt="Twenty Years in the Making Thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300"
+                    onClick={() => handlePlay(rightVideo.videoId)}
+                  >
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             <h3 className="mt-4 font-serif text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
-              Twenty Years in the Making
+              {rightVideo.title}
             </h3>
             <p className="mt-2 text-light-text/80 dark:text-dark-text/80 leading-relaxed text-sm md:text-base text-center lg:text-left">
-              This one is special, very special. Hiba and Akbar's story took us all the way from Hiba's childhood till their reception in Bhopal and on the way we discovered an innovative way of filming a wedding. We knew from start that no matter how hard we try we could not fit their story in a 5 minute film, we tried for a year now and this hard we try now we can ever fit which is not in 5 minute film, but we India Pakistan story which is not India or Pak. For us much more than that. a wedding, an about wedding than us it is which for much all.
+              {rightVideo.description}
             </p>
           </div>
         </div>

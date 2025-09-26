@@ -60,7 +60,7 @@ const WeddingPhoto: React.FC<WeddingPhotoProps> = ({ navigateTo }) => {
               className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1"
             >
               {/* Image Container */}
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative overflow-hidden" style={{ paddingBottom: '150%' }}>
                 <img
                   src={photo.imageUrl}
                   alt={`Wedding photo of ${photo.coupleNames}`}
