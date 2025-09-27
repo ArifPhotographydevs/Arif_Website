@@ -71,7 +71,7 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 items-start">
           {/* Logo Text */}
           <div className="text-center lg:text-left mt-8">
-            <h2 className="text-4xl md:text-5xl font-serif text-stone-800 dark:text-dark-text font-medium uppercase tracking-wider">
+            <h2 className="text-4xl md:text-5xl font-garamond text-stone-800 dark:text-dark-text font-medium uppercase tracking-wider">
               Arif Photography
             </h2>
           </div>

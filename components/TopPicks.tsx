@@ -13,7 +13,7 @@ const TopPicks: React.FC = () => {
     <section className="py-8 md:py-12 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-8">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold">Featured Stories</h2>
+          <h2 className="font-garamond text-4xl md:text-5xl font-bold">Featured Stories</h2>
           <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">A curated selection of our favorite shoots.</p>
         </div>
         
@@ -54,7 +54,7 @@ const TopPicks: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-6 text-white w-full">
                             <span className="text-xs uppercase tracking-widest bg-white/20 px-2 py-1 rounded-full">{pick.category}</span>
-                            <h3 className="font-serif text-2xl font-bold mt-2">{pick.title}</h3>
+                            <h3 className="font-garamond text-2xl font-bold mt-2">{pick.title}</h3>
                             <p className="text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 ease-in-out mt-2">{pick.description}</p>
                         </div>
                         </div>

@@ -45,7 +45,7 @@ const Faq: React.FC = () => {
     <section className="py-8 md:py-12 bg-light-secondary-bg dark:bg-dark-secondary-bg">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
+          <h2 className="font-garamond text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
         </div>
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-center space-x-4 mb-8 border-b border-light-text/10 dark:border-dark-text/10">

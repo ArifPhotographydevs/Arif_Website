@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
       <div className="container mx-auto px-6 py-8">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           <div className="md:col-span-1">
-            <h3 className="font-serif text-2xl font-bold mb-4">Arif Photography</h3>
+            <h3 className="font-garamond text-2xl font-bold mb-4">Arif Photography</h3>
             <p className="text-light-text/70 dark:text-dark-text/70 mb-6">Capturing life's most precious moments with artistry and passion.</p>
           </div>
           <div>

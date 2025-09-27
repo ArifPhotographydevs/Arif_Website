@@ -45,7 +45,7 @@ const ModernApproach = () => {
                         {/* RIGHT COLUMN */}
                         <div className="lg:-ml-16 relative">
                             <div className="lg:pt-16">
-                                <h2 className="font-serif text-4xl md:text-5xl font-medium uppercase leading-tight tracking-wider mt-8 lg:mt-0">
+                                <h2 className="font-garamond text-4xl md:text-5xl font-medium uppercase leading-tight tracking-wider mt-8 lg:mt-0">
                                     A Modern Approach
                                     <span className="block text-2xl md:text-3xl italic normal-case font-light my-1 md:my-2">to an</span>
                                     AGE OLD TRADITION

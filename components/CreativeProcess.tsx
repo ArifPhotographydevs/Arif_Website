@@ -70,7 +70,7 @@ const CreativeProcess: React.FC = () => {
 
                     {/* Text Column */}
                     <div className={`transition-all duration-1000 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold">From Vision to Masterpiece</h2>
+                        <h2 className="font-garamond text-4xl md:text-5xl font-bold">From Vision to Masterpiece</h2>
                         <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 mb-10">
                             Our creative process is a collaborative journey. We combine meticulous planning with spontaneous artistry to capture the true essence of your story.
                         </p>
@@ -82,7 +82,7 @@ const CreativeProcess: React.FC = () => {
                                         {step.icon}
                                     </div>
                                     <div>
-                                        <h3 className="font-serif text-xl font-bold">{step.title}</h3>
+                                        <h3 className="font-garamond text-xl font-bold">{step.title}</h3>
                                         <p className="text-light-text/70 dark:text-dark-text/70 mt-1">{step.description}</p>
                                     </div>
                                 </div>

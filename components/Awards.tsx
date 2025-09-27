@@ -20,7 +20,7 @@ const Awards: React.FC = () => {
             </div>
           </div>
           <div className="md:col-span-3">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold">Award-Winning Photography</h2>
+            <h2 className="font-garamond text-4xl md:text-5xl font-bold">Award-Winning Photography</h2>
             <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 mb-10">
               Our dedication to the craft has been recognized by some of the most prestigious awards in the industry.
             </p>
@@ -32,7 +32,7 @@ const Awards: React.FC = () => {
                   style={{ transitionDelay: `${index * 150 + 300}ms` }}
                 >
                   <p className="text-sm font-bold uppercase tracking-wider text-light-text/50 dark:text-dark-text/50">{award.year} &bull; {award.issuer}</p>
-                  <h3 className="font-serif text-2xl font-semibold">{award.title}</h3>
+                  <h3 className="font-garamond text-2xl font-semibold">{award.title}</h3>
                 </div>
               ))}
             </div>

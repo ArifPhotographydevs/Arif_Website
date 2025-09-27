@@ -28,8 +28,7 @@ const weddingPhotos: WeddingPhoto[] = [
   {
     id: 3,
     imageUrl: 'https://i.postimg.cc/44MTMtjt/IMG-8994.jpg',
-    coupleNames: 'Alia & Ranbir',
-    location: 'Mumbai',
+    coupleNames: 'Rakesh & Riya',
     date: 'Aug 8, 2024'
   },
   {

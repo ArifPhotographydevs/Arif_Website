@@ -35,18 +35,16 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // When Newsletter is in view, make sidebar absolute to stop at Newsletter
           sidebar.style.position = 'absolute';
-          sidebar.style.top = `${newsletter.offsetTop - sidebar.offsetHeight - 16}px`; // Stop above Newsletter
+          sidebar.style.top = `${newsletter.offsetTop - sidebar.offsetHeight - 16}px`;
         } else {
-          // Revert to fixed when Newsletter is not in view
           sidebar.style.position = 'fixed';
-          sidebar.style.top = '33.33%'; // Position roughly in the middle
+          sidebar.style.top = '33.33%';
         }
       },
       {
         root: null,
-        threshold: 0.1, // Trigger when 10% of Newsletter is visible
+        threshold: 0.1,
       }
     );
 
@@ -56,7 +54,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-hidden font-['EB_Garamond']">
       {/* Social Media Icons - Fixed Left Sidebar */}
       <div
         ref={sidebarRef}

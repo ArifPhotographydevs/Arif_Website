@@ -74,7 +74,7 @@ const ContactPage: React.FC = () => {
     <section className="py-20 md:py-28 bg-light-secondary-bg dark:bg-dark-secondary-bg">
       <div className="container mx-auto px-6 pt-12">
         <div className="text-center mb-16">
-          <h1 className="font-serif text-5xl md:text-7xl font-bold">
+          <h1 className="font-garamond text-5xl md:text-7xl font-bold">
             Let's Create Together
           </h1>
           <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 max-w-2xl mx-auto">
@@ -111,7 +111,7 @@ const ContactPage: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center bg-light-bg dark:bg-dark-bg p-8 md:p-12 rounded-lg shadow-2xl">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-garamond text-3xl md:text-4xl font-bold mb-4">
               Send a Message
             </h2>
             <form className="space-y-6">
@@ -181,7 +181,7 @@ const ContactPage: React.FC = () => {
               allowFullScreen
             ></iframe>
             <div className="absolute top-4 left-4 p-4 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm rounded-lg">
-              <h3 className="font-serif font-bold text-2xl">Find Our Studio</h3>
+              <h3 className="font-garamond font-bold text-2xl">Find Our Studio</h3>
               <p className="text-light-text/70 dark:text-dark-text/70 mt-1">
                 4th Floor, Pillar No.1680, Silver Square Building, 36, Cable Bridge Rd,
                 Aditya Enclave, Venkatagiri, Jubilee Hills, Hyderabad, Telangana 500033

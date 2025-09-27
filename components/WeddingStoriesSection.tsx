@@ -82,7 +82,7 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
                 </>
               )}
             </div>
-            <h3 className="mt-4 font-serif text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
+            <h3 className="mt-4 font-garamond text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
               {leftVideo.title}
             </h3>
             <p className="mt-2 text-light-text/80 dark:text-dark-text/80 leading-relaxed text-sm md:text-base text-center lg:text-left">
@@ -123,7 +123,7 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
                 </>
               )}
             </div>
-            <h3 className="mt-4 font-serif text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
+            <h3 className="mt-4 font-garamond text-xl md:text-2xl font-medium text-stone-800 dark:text-dark-text/80 text-center lg:text-left">
               {rightVideo.title}
             </h3>
             <p className="mt-2 text-light-text/80 dark:text-dark-text/80 leading-relaxed text-sm md:text-base text-center lg:text-left">

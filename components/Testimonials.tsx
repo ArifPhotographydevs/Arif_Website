@@ -15,7 +15,7 @@ const Testimonials: React.FC = () => {
         <section className="py-8 md:py-12 bg-light-bg dark:bg-dark-bg">
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto text-center mb-8">
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold">Kind Words</h2>
+                    <h2 className="font-garamond text-4xl md:text-5xl font-bold">Kind Words</h2>
                     <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">What our clients say about their experience.</p>
                 </div>
                 <div className="relative max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ const Testimonials: React.FC = () => {
                                         <div className="absolute -bottom-4 right-0 transform scale-x-[-1]"><QuoteIcon /></div>
                                     </div>
                                     <div className="mt-8">
-                                        <p className="font-serif font-bold text-xl">{testimonial.author}</p>
+                                        <p className="font-garamond font-bold text-xl">{testimonial.author}</p>
                                         <p className="text-light-text/60 dark:text-dark-text/60">{testimonial.event}</p>
                                     </div>
                                 </div>

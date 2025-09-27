@@ -17,7 +17,7 @@ const GalleryPage: React.FC = () => {
     <section className="py-20 md:py-28 bg-light-bg dark:bg-dark-bg">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 pt-12">
-          <h1 className="font-serif text-5xl md:text-7xl font-bold">Our Portfolio</h1>
+          <h1 className="font-garamond text-5xl md:text-7xl font-bold">Our Portfolio</h1>
           <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 max-w-2xl mx-auto">
             A curated collection of moments, stories, and emotions, captured through our lens. Explore the breadth of our work across various styles.
           </p>
@@ -49,7 +49,7 @@ const GalleryPage: React.FC = () => {
                 className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                 <p className="text-white font-serif text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{image.category}</p>
+                 <p className="text-white font-garamond text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{image.category}</p>
               </div>
             </div>
           ))}

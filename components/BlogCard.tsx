@@ -14,7 +14,7 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
         <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="font-serif text-xl font-bold mb-2">{post.title}</h3>
+        <h3 className="font-garamond text-xl font-bold mb-2">{post.title}</h3>
         <p className="text-light-text/70 dark:text-dark-text/70 text-sm mb-4 flex-grow">{post.description}</p>
         <div className="flex items-center justify-between text-xs text-light-text/60 dark:text-dark-text/60 mt-auto pt-4 border-t border-light-text/10 dark:border-dark-text/10">
           <div className="flex items-center">

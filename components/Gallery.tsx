@@ -70,7 +70,7 @@ const Gallery: React.FC<GalleryProps> = ({ navigateTo }) => {
             <p className="text-xs sm:text-sm md:text-base leading-tight">
               some of the most
             </p>
-            <h2 className="font-serif text-lg sm:text-xl md:text-8xl font-black tracking-tighter">
+            <h2 className="font-garamond text-lg sm:text-xl md:text-8xl font-black tracking-tighter">
               “ICONIC”
             </h2>
             <p className="text-xs sm:text-sm md:text-base tracking-widest leading-tight">

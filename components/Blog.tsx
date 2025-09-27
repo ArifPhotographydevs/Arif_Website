@@ -49,7 +49,7 @@ const Blog: React.FC<BlogProps> = ({ navigateTo }) => {
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold">From the Journal</h2>
+          <h2 className="font-garamond text-4xl md:text-5xl font-bold">From the Journal</h2>
           <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">Insights, stories, and tips from the world of photography.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

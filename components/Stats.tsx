@@ -12,7 +12,7 @@ const AnimatedStat: React.FC<{ stat: (typeof STATS)[0] }> = ({ stat }) => {
     return (
         <div ref={ref} className="text-center">
             <Icon className="w-12 h-12 mx-auto mb-4 text-light-accent dark:text-dark-accent" />
-            <p className="font-serif text-5xl font-bold">
+            <p className="font-garamond text-5xl font-bold">
                 {count}{stat.suffix}
             </p>
             <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-2">{stat.label}</p>
@@ -29,7 +29,7 @@ const Stats: React.FC = () => {
     <section className="py-16 md:py-24" ref={ref}>
         <div className={`container mx-auto px-6 transition-opacity duration-1000 delay-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <div className="text-center mb-16">
-                <h2 className="font-serif text-4xl md:text-5xl font-bold">Our Impact in Numbers</h2>
+                <h2 className="font-garamond text-4xl md:text-5xl font-bold">Our Impact in Numbers</h2>
                 <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-2 max-w-2xl mx-auto">We are proud of the work we do and the relationships we build.</p>
             </div>
             
