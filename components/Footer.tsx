@@ -1,116 +1,65 @@
-import { Facebook, Twitter, Instagram, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { GALLERY_IMAGES } from '../constants';
+import { Page } from '../App';
 
-const Footer = () => {
+interface FooterProps {
+  navigateTo: (page: Page) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
+  const instaImages = GALLERY_IMAGES.slice(0, 6).map(img => img.src);
+  
+  const navLinks: { name: string, page: Page }[] = [
+    { name: 'Portfolio', page: 'Gallery' },
+    { name: 'About Us', page: 'About' },
+    { name: 'Contact', page: 'Contact' },
+    { name: 'Blog', page: 'Blog' },
+  ];
+
   return (
-    <footer className="bg-light-cream dark:bg-dark-bg py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side - Contact Info and Form */}
-          <div className="space-y-8">
-     
-
-            {/* Let's talk section */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-4xl font-light text-gray-800 dark:text-dark-text mb-6">Let's talk</h2>
-                <div className="w-16 h-0.5 bg-gray-400 mb-8"></div>
-              </div>
-
-              {/* Contact Information */}
-              <div className="space-y-2 text-gray-600 dark:text-dark-text/80 mb-8">
-                <p>4th Floor, Pillar No.1680, Silver Square Building</p>
-                <p>36, Cable Bridge Rd, Aditya Enclave, Venkatagiri</p>
-                <p>Jubilee Hills, Hyderabad, Telangana 500033</p>
-                <p>Tel. 123-456-7890</p>
-                <p>info@arifphotography.com</p>
-              </div>
-
-              {/* Contact Form */}
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm text-gray-600 dark:text-dark-text/80 mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-dark-text/20 focus:border-gray-500 dark:focus:border-dark-text focus:outline-none transition-colors bg-white dark:bg-dark-bg"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm text-gray-600 dark:text-dark-text/80 mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-dark-text/20 focus:border-gray-500 dark:focus:border-dark-text focus:outline-none transition-colors bg-white dark:bg-dark-bg"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm text-gray-600 dark:text-dark-text/80 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-dark-text/20 focus:border-gray-500 dark:focus:border-dark-text focus:outline-none transition-colors bg-white dark:bg-dark-bg"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm text-gray-600 dark:text-dark-text/80 mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-dark-text/20 focus:border-gray-500 dark:focus:border-dark-text focus:outline-none transition-colors bg-white dark:bg-dark-bg"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm text-gray-600 dark:text-dark-text/80 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-dark-text/20 focus:border-gray-500 dark:focus:border-dark-text focus:outline-none transition-colors bg-white dark:bg-dark-bg resize-none"
-                  />
-                </div>
-                
-                <button
-                  type="submit"
-                  className="bg-black text-white px-8 py-3 hover:bg-gray-800 transition-colors font-medium"
+    <footer className="bg-light-bg dark:bg-dark-bg border-t border-light-text/10 dark:border-dark-text/10">
+      <div className="container mx-auto px-6 py-8">
+        <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="md:col-span-1">
+            <h3 className="font-serif text-2xl font-bold mb-4">Arif Photography</h3>
+            <p className="text-light-text/70 dark:text-dark-text/70 mb-6">Capturing life's most precious moments with artistry and passion.</p>
+          </div>
+          <div>
+            <h4 className="font-bold uppercase tracking-widest mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-light-text/70 dark:text-dark-text/70">
+              {navLinks.map(link => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => navigateTo(link.page)}
+                    className="hover:text-light-accent dark:hover:text-dark-accent"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:col-span-1">
+            <h4 className="font-bold uppercase tracking-widest mb-4">Follow on Instagram</h4>
+            <div className="grid grid-cols-3 gap-2">
+              {instaImages.map((src, i) => (
+                <a
+                  href="#"
+                  key={i}
+                  className="block overflow-hidden rounded-md aspect-square"
                 >
-                  Send Message
-                </button>
-              </form>
+                  <img
+                    src={src}
+                    alt={`Instagram post ${i}`}
+                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+                  />
+                </a>
+              ))}
             </div>
           </div>
-
-          {/* Right Side - Wedding Image */}
-          <div className="relative">
-            <div className="aspect-[4/5] bg-gray-200 dark:bg-dark-secondary-bg overflow-hidden">
-              <img
-                src="https://i.postimg.cc/dVZZBJPF/014-A3530-Edit-Edit.jpg"
-                alt="Wedding couple"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+        </div>
+        <div className="text-center text-sm text-light-text/50 dark:text-dark-text/50 pt-8 mt-8 border-t border-light-text/10 dark:border-dark-text/10">
+          <p>&copy; {new Date().getFullYear()} Arif Photography. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

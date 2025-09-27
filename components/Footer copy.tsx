@@ -1,14 +1,14 @@
-import React from 'react';
+import { Facebook, Twitter, Instagram, MessageCircle } from 'lucide-react';
 
-const newsletterBg = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAcADADASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAUGBwEDBAj/xAApEAACAQMDAwQCAwAAAAAAAAABAgMEBREABgcSITFBURMhIkJhcYGx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMB/8QAHBEAAgICAwEAAAAAAAAAAAAAAQIAAxESBCEx/9oADAMBAAIRAxEAPwD1PRXLHX22nrq2gko5ZYw7wS4Lxn2JBIz+DWN11uhpzREaLqS5+BJMu9I0jaR2XOMkKCQM579uNaCz3a332z0t5s8iyUtTGHifaVJH1BwQfYjkayPV+6eg9FXhLLqGpWOreETKjBnwhJGSACDkEev866K9fiyS8vPHMRj8s12p949D6X06t/uV2iajeUxI0UbyszgZK7VBIIBOTjjI9+M/N/uJaBWQvJcXmlclQkdLISHPoCQAB+QSPqNCqfePQelNMNqS53eJqR5TEskMbSqz4yV2qCQRnJzxgj34z83+4poFIHeS4vM+CVRLWQlz6AEgAfkkD6Gtq9eXLUs/EoylZrL/wCKnhb2av8Akf8A7R/ip4W9mr/kf/trJVX+4n4cglZItXcKgEhXjpWIPuMgA/zWP/4qeFvZq/5H/wC0f4qeFvZq/wCR/wDtp+3cs/ZlGawf/E9wsBnV/wAj/wDaP8TvCwGTq/5H/wC2slVf7ifhyCVki1dwqASFeOlYg+4yAD/NY/8A4nuFhlOr/kf/ALR/id4WGTrA/wDkf/tp+3cvJ7Moza7j/cT8NJIqRV1wZSQC70rYGe5IAJ/kA/Wsf/xNcLf+av8Akf8A7R/ia4W/81f8j/8AbT9vJLz2ZlGbXD/uK+GnkWNKu4KzEABKRiSfcDA/zWO/8TXC3/mr/kf/ALR/ia4W/wDNX/I//bT9vJLT2ZRn/9k=';
-
-const Newsletter: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-light-cream dark:bg-dark-bg py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Contact Info and Form */}
           <div className="space-y-8">
+     
+
             {/* Let's talk section */}
             <div className="space-y-6">
               <div>
@@ -93,7 +93,7 @@ const Newsletter: React.FC = () => {
                 
                 <button
                   type="submit"
-                  className="bg-black text-white px-8 py-3 hover:bg-gray-800 transition-colors font-medium dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                  className="bg-black text-white px-8 py-3 hover:bg-gray-800 transition-colors font-medium"
                 >
                   Send Message
                 </button>
@@ -117,4 +117,4 @@ const Newsletter: React.FC = () => {
   );
 };
 
-export default Newsletter;
+export default Footer;
