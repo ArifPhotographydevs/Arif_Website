@@ -12,7 +12,7 @@ const Newsletter: React.FC = () => {
             {/* Let's talk section */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-4xl font-light text-gray-800 dark:text-dark-text mb-6">Let's Engage</h2>
+                <h2 className="text-4xl font-light text-gray-800 dark:text-dark-text mb-6">Let's Engage With Us</h2>
                 <div className="w-16 h-0.5 bg-gray-400 mb-8"></div>
               </div>
 
