@@ -69,7 +69,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         } else {
           sidebar.style.position = 'fixed';
           sidebar.style.top = '40%';
-          sidebar.style.transform = 'translateY(0.5rem)'; // Slight downward offset
+          sidebar.style.transform = 'translateY(0.5rem)';
         }
       },
       {
@@ -108,7 +108,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
 
         {/* Social Media Icons */}
         <div
-          className={`flex flex-col space-y-2 sm:space-y-4 p-2 sm:p-4 bg-transparent transition-all duration-300 ${
+          className={`flex flex-col space-y-2 sm:space-y-4 p-0 left-0 bg-transparent transition-all duration-300 ${
             isMobile
               ? isSidebarOpen
                 ? 'opacity-100 max-h-screen'
@@ -143,7 +143,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
             formRef.current.scrollIntoView({ behavior: 'smooth' });
           }
         }}
-        className="lg:hidden fixed bottom-4 right-4 bg-orange-500 text-white font-['EB_Garamond'] font-medium text-lg rounded-full px-6 py-3 shadow-lg hover:bg-orange-600 dark:bg-orange-400 dark:hover:bg-orange-300 transition-colors animate-bounce z-50"
+        className="lg:hidden fixed bottom-4 right-4 bg-orange-500 dark:bg-white text-white dark:text-gray-900 font-['EB_Garamond'] font-medium text-lg rounded-full px-6 py-3 shadow-lg hover:bg-orange-600 dark:hover:bg-gray-200 transition-colors animate-bounce z-50"
         aria-label="Book Now"
       >
         Book Now

@@ -4,19 +4,25 @@ import { HERO_SLIDES } from '../constants';
 const HeroSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_SLIDES.length);
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(goToNext, 5000);
-    return () => clearInterval(timer);
-  }, [goToNext]);
+  const goToPrevious = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  }, []);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
+
+  useEffect(() => {
+    const timer = setInterval(goToNext, 5000);
+    return () => clearInterval(timer);
+  }, [goToNext]);
 
   // Parallax effect
   useEffect(() => {
@@ -36,13 +42,43 @@ const HeroSlider: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Swipe gesture handling
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 768) {
+      touchStartX.current = e.touches[0].clientX;
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 768) {
+      touchEndX.current = e.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (window.innerWidth < 768 && touchStartX.current !== null && touchEndX.current !== null) {
+      const deltaX = touchStartX.current - touchEndX.current;
+      const threshold = 50; // Minimum swipe distance in pixels
+      if (deltaX > threshold) {
+        goToNext(); // Swipe left -> next slide
+      } else if (deltaX < -threshold) {
+        goToPrevious(); // Swipe right -> previous slide
+      }
+      touchStartX.current = null;
+      touchEndX.current = null;
+    }
+  };
+
   return (
     <section ref={sectionRef} className="relative w-full h-screen">
       <div
         className="absolute inset-0 flex transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
-        {HERO_SLIDES.map((slide, index) => (
+        {HERO_SLIDES.map((slide, index,subtitle) => (
           <div key={index} className="relative w-full h-full flex-shrink-0">
             <img
               src={slide.image}
@@ -57,30 +93,12 @@ const HeroSlider: React.FC = () => {
               }}
             />
             <div
-              className={`absolute top-1/4 left-4 right-4 z-20 transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 flex justify-center items-center z-20 transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? 'opacity-100' : 'opacity-0'
-              } font-['EB_Garamond'] text-white text-xl md:text-2xl lg:text-3xl font-bold text-shadow-lg`}
+              } font-garamond text-4xl md:text-5xl font-medium uppercase leading-tight tracking-wider mt-8 lg:mt-0 text-white text-shadow-sm`}
             >
-              {slide.overlayText}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-6 md:p-10 z-30">
-        {HERO_SLIDES.map((slide, index) => (
-          <div
-            key={index}
-            className={`transition-opacity duration-1000 ease-in-out absolute ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <p className="font-['EB_Garamond'] text-lg md:text-2xl mb-4 tracking-widest font-bold text-yellow-200">
               {slide.subtitle}
-            </p>
-            <h2 className="font-['EB_Garamond'] font-black text-4xl md:text-5xl lg:text-6xl uppercase leading-tight text-yellow-100 drop-shadow-lg">
-              {slide.title}
-            </h2>
+            </div>
           </div>
         ))}
       </div>
