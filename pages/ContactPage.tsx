@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import Newsletter from '../components/Newsletter';
 
 const MailIcon = () => (
   <svg
@@ -70,6 +71,9 @@ const ContactInfoCard: React.FC<{
 );
 
 const ContactPage: React.FC = () => {
+  const newsletterRef = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+
   return (
     <section className="py-20 md:py-28 bg-light-secondary-bg dark:bg-dark-secondary-bg">
       <div className="container mx-auto px-6 pt-12">
@@ -85,7 +89,7 @@ const ContactPage: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <ContactInfoCard icon={<MailIcon />} title="Email Us">
             <a
-              href="mailto:hello@Arif.photo"
+              href="mailto:Connect.arifphotography@gmail.com"
               className="hover:text-light-accent dark:hover:text-dark-accent transition-colors"
             >
               Connect.arifphotography@gmail.com
@@ -93,7 +97,7 @@ const ContactPage: React.FC = () => {
           </ContactInfoCard>
           <ContactInfoCard icon={<PhoneIcon />} title="Call Us">
             <a
-              href="tel:+1234567890"
+              href="tel:+8341079140"
               className="hover:text-light-accent dark:hover:text-dark-accent transition-colors"
             >
               8341079140
@@ -109,69 +113,8 @@ const ContactPage: React.FC = () => {
           </ContactInfoCard>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center bg-light-bg dark:bg-dark-bg p-8 md:p-12 rounded-lg shadow-2xl">
-          <div>
-            <h2 className="font-garamond text-3xl md:text-4xl font-bold mb-4">
-              Send a Message
-            </h2>
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="sr-only">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Your Name"
-                    className="w-full p-4 bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Your Email"
-                    className="w-full p-4 bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent transition-all"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="subject" className="sr-only">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  placeholder="Subject"
-                  className="w-full p-4 bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent transition-all"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full p-4 bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent transition-all"
-                ></textarea>
-              </div>
-              <div className="text-right">
-                <button
-                  type="submit"
-                  className="px-8 py-4 rounded-full bg-light-accent text-white dark:bg-dark-accent dark:text-black font-semibold uppercase tracking-wider hover:opacity-90 transform hover:scale-105 transition-all duration-300"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-          <div className="h-96 lg:h-full rounded-lg overflow-hidden relative shadow-inner">
+        <div className="grid grid-cols-1 mb-16">
+          <div className="h-96 lg:h-[600px] rounded-lg overflow-hidden relative shadow-inner">
             <iframe
               width="100%"
               height="100%"
@@ -189,6 +132,8 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        <Newsletter ref={newsletterRef} formRef={formRef} />
       </div>
     </section>
   );

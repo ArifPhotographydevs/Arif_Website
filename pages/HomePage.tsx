@@ -119,7 +119,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           {[
             { Icon: Instagram, label: 'Instagram', href: 'https://share.google/iT09vihBt3C1LgZ8O' },
             { Icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@ArifPhotography' },
-            { Icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/8341079140' },
+            { Icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/+918341079140' },
           ].map(({ Icon, label, href }, index) => (
             <a
               key={index}

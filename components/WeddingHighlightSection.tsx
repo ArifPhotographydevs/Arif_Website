@@ -37,6 +37,11 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
         </svg>
       </div>
 
+      {/* Section Heading on Mobile */}
+      <div className="sm:hidden font-garamond text-4xl font-medium uppercase tracking-wider text-stone-800 dark:text-dark-text text-center mt-8 z-10">
+        Arif Photography
+      </div>
+
       {/* Trapezium-Shaped Video Frame */}
       <div className="relative z-10 mx-auto mt-12 w-11/12">
         <div
@@ -55,7 +60,6 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
           />
           {/* Overlay Text on Video */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-           
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 mix-blend-overlay"></div>
         </div>
@@ -70,13 +74,11 @@ const WeddingHighlightSection: React.FC<WeddingHighlightSectionProps> = ({ navig
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 items-start">
           {/* Logo Text */}
-          <div className="text-center lg:text-left mt-8">
+          <div className="hidden sm:block text-center lg:text-left mt-8">
             <h2 className="text-4xl md:text-5xl font-garamond text-stone-800 dark:text-dark-text font-medium uppercase tracking-wider">
               Arif Photography
             </h2>
           </div>
-
-          {/* Text Block */}
           <div className="mt-8 text-center lg:text-left">
             <p className="text-lg md:text-xl text-stone-700 dark:text-dark-text/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
               We capture the essence of your love story with cinematic precision and soulful artistry. Our wedding films and photos are crafted to reflect your unique journey, blending emotion with elegance.
