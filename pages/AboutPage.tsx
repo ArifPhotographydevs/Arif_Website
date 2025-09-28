@@ -7,7 +7,7 @@ const ValueCard: React.FC<{ value: Value }> = ({ value }) => {
     return (
         <div className="text-center p-6">
             <Icon className="w-12 h-12 mx-auto mb-4 text-light-accent dark:text-dark-accent" />
-            <h3 className="font-garamond text-2xl font-bold mb-2">{value.title}</h3>
+            <h3 className="font-garamond text-2xl font-medium mb-2">{value.title}</h3>
             <p className="text-light-text/70 dark:text-dark-text/70">{value.description}</p>
         </div>
     );
@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
             </div>
             
             <div className="relative order-1 lg:order-2 text-center lg:text-left z-20">
-              <h1 className="font-garamond text-5xl md:text-7xl font-bold leading-tight">{ABOUT_TEXT.intro.title}</h1>
+              <h1 className="font-garamond text-5xl md:text-7xl font-medium leading-tight">{ABOUT_TEXT.intro.title}</h1>
                <div className="w-24 h-1 bg-light-accent dark:bg-dark-accent my-8 mx-auto lg:mx-0"></div>
               <div className="space-y-6 text-lg text-light-text/80 dark:text-dark-text/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 <p>{ABOUT_TEXT.intro.p1}</p>

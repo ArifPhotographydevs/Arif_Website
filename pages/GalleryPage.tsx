@@ -17,7 +17,7 @@ const GalleryPage: React.FC = () => {
     <section className="py-20 md:py-28 bg-light-bg dark:bg-dark-bg">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 pt-12">
-          <h1 className="font-garamond text-5xl md:text-7xl font-bold">Our Portfolio</h1>
+          <h1 className="font-garamond text-5xl md:text-7xl font-medium">Our Portfolio</h1>
           <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 max-w-2xl mx-auto">
             A curated collection of moments, stories, and emotions, captured through our lens. Explore the breadth of our work across various styles.
           </p>
