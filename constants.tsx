@@ -18,15 +18,19 @@ const genericImage = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAY
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    image: 'https://i.postimg.cc/dQXLBhBN/zaya.jpg'
+    image: 'https://i.postimg.cc/dQXLBhBN/zaya.jpg',
+    subtitle:'Capturing Living Memories',
+    title: 'Arif Photography'
+    
     
   },
   {
-    image: 'https://i.postimg.cc/4xbq3J46/IMG-6024-1.jpg'
-  
+    image: 'https://i.postimg.cc/4xbq3J46/IMG-6024-1.jpg',
+    title: 'Arif Photography: Timeless Moments'
   },
   {
-    image: 'https://i.postimg.cc/RCNkT5Gm/IMG-0838.jpg'
+    image: 'https://i.postimg.cc/RCNkT5Gm/IMG-0838.jpg',
+    title: 'Arif Photography: Your Story in Frames'
     
   }
 ];

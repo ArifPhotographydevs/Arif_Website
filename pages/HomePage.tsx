@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import HeroSlider from '../components/HeroSlider';
 import Awards from '../components/Awards';
 import TopPicks from '../components/TopPicks';
@@ -16,7 +16,8 @@ import WeddingPhoto from '@/components/WeddingPhoto';
 import WeddingStoriesSection from '@/components/WeddingStoriesSection';
 import WeddingHighlightSection from '@/components/WeddingHighlightSection';
 import WeddingVideoGallerySection from '@/components/WeddingVideoGallerySection';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { Instagram, Youtube, Menu, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface HomePageProps {
   navigateTo: (page: Page) => void;
@@ -25,7 +26,35 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const newsletterRef = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Start open for mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Handle auto-collapse after 3 seconds on mobile/tablet
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        setIsSidebarOpen(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobile]);
+
+  // Toggle sidebar on hamburger click
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // Intersection Observer for sidebar positioning
   useEffect(() => {
     const sidebar = sidebarRef.current;
     const newsletter = newsletterRef.current;
@@ -39,7 +68,8 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           sidebar.style.top = `${newsletter.offsetTop - sidebar.offsetHeight - 16}px`;
         } else {
           sidebar.style.position = 'fixed';
-          sidebar.style.top = '33.33%';
+          sidebar.style.top = '40%';
+          sidebar.style.transform = 'translateY(0.5rem)'; // Slight downward offset
         }
       },
       {
@@ -55,27 +85,69 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden font-['EB_Garamond']">
-      {/* Social Media Icons - Fixed Left Sidebar */}
+      {/* Social Media Sidebar */}
       <div
         ref={sidebarRef}
-        className="fixed left-4 top-1/3 flex flex-col space-y-4 p-4 bg-transparent z-50 hidden lg:flex max-h-screen"
+        className="fixed left-2 sm:left-4 top-[40%] translate-y-2 z-50 max-h-screen"
       >
-        {[
-          { Icon: Facebook, label: 'Facebook' },
-          { Icon: Instagram, label: 'Instagram' },
-          { Icon: Youtube, label: 'YouTube' },
-        ].map(({ Icon, label }, index) => (
-          <a
-            key={index}
-            href={`#${label.toLowerCase()}`} // Replace with actual social media links
-            className="w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500"
-            aria-label={`Follow us on ${label}`}
+        {/* Hamburger Button - Mobile/Tablet Only */}
+        {isMobile && (
+          <button
+            onClick={toggleSidebar}
+            className="w-10 h-10 sm:w-12 sm:h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 mb-2 sm:mb-4"
+            aria-label={isSidebarOpen ? 'Close social media menu' : 'Open social media menu'}
             tabIndex={0}
           >
-            <Icon className="w-6 h-6 text-white dark:text-gray-900" />
-          </a>
-        ))}
+            {isSidebarOpen ? (
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
+            ) : (
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
+            )}
+          </button>
+        )}
+
+        {/* Social Media Icons */}
+        <div
+          className={`flex flex-col space-y-2 sm:space-y-4 p-2 sm:p-4 bg-transparent transition-all duration-300 ${
+            isMobile
+              ? isSidebarOpen
+                ? 'opacity-100 max-h-screen'
+                : 'opacity-0 max-h-0 overflow-hidden'
+              : 'opacity-100 max-h-screen'
+          }`}
+        >
+          {[
+            { Icon: Instagram, label: 'Instagram', href: 'https://share.google/iT09vihBt3C1LgZ8O' },
+            { Icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@ArifPhotography' },
+            { Icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/8341079140' },
+          ].map(({ Icon, label, href }, index) => (
+            <a
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 animate-fade-in-up"
+              aria-label={`Follow us on ${label}`}
+              tabIndex={isMobile && !isSidebarOpen ? -1 : 0}
+            >
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
+            </a>
+          ))}
+        </div>
       </div>
+
+      {/* Book Now Button - Mobile Only */}
+      <button
+        onClick={() => {
+          if (formRef.current) {
+            formRef.current.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        className="lg:hidden fixed bottom-4 right-4 bg-orange-500 text-white font-['EB_Garamond'] font-medium text-lg rounded-full px-6 py-3 shadow-lg hover:bg-orange-600 dark:bg-orange-400 dark:hover:bg-orange-300 transition-colors animate-bounce z-50"
+        aria-label="Book Now"
+      >
+        Book Now
+      </button>
 
       {/* Main Content */}
       <main className="flex flex-col">
@@ -92,7 +164,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         <Stats />
         <Testimonials />
         <Faq />
-        <Newsletter ref={newsletterRef} />
+        <Newsletter ref={newsletterRef} formRef={formRef} />
       </main>
     </div>
   );
