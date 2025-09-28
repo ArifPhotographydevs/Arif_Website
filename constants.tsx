@@ -26,11 +26,13 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     image: 'https://i.postimg.cc/4xbq3J46/IMG-6024-1.jpg',
-    title: 'Arif Photography: Timeless Moments'
+    subtitle:'Timeless Moments',
+    title: 'Arif Photography'
   },
   {
     image: 'https://i.postimg.cc/RCNkT5Gm/IMG-0838.jpg',
-    title: 'Arif Photography: Your Story in Frames'
+    subtitle:'Your Story in Frames',
+    title: 'Arif Photography'
     
   }
 ];
