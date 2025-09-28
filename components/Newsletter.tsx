@@ -27,7 +27,7 @@ const Newsletter = forwardRef<HTMLElement, NewsletterProps>(({ formRef }, ref) =
                 <p>4th Floor, Pillar No.1680, Silver Square Building</p>
                 <p>36, Cable Bridge Rd, Aditya Enclave, Venkatagiri</p>
                 <p>Jubilee Hills, Hyderabad, Telangana 500033</p>
-                <p>Tel. 123-456-7890</p>
+                <p>Tel. +918341079140</p>
                 <p>info@arifphotography.com</p>
               </div>
 
