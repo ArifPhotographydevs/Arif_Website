@@ -78,7 +78,7 @@ const HeroSlider: React.FC = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {HERO_SLIDES.map((slide, index,subtitle) => (
+        {HERO_SLIDES.map((slide, index) => (
           <div key={index} className="relative w-full h-full flex-shrink-0">
             <img
               src={slide.image}
@@ -93,9 +93,9 @@ const HeroSlider: React.FC = () => {
               }}
             />
             <div
-              className={`absolute inset-0 flex justify-center items-center z-20 transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 flex sm:justify-center justify-end items-center z-20 transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? 'opacity-100' : 'opacity-0'
-              } font-garamond text-4xl md:text-5xl font-medium uppercase leading-tight tracking-wider mt-8 lg:mt-0 text-white text-shadow-sm`}
+              } font-garamond text-2xl sm:text-4xl md:text-5xl font-medium uppercase leading-tight tracking-wider sm:mt-8 lg:mt-0 text-white text-shadow-sm pr-4`}
             >
               {slide.subtitle}
             </div>

@@ -19,7 +19,7 @@ const genericImage = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAY
 export const HERO_SLIDES: HeroSlide[] = [
   {
     image: 'https://i.postimg.cc/dQXLBhBN/zaya.jpg',
-    subtitle:'Capturing Living Memories',
+    subtitle:'Capturing Memories',
     title: 'Arif Photography'
     
     

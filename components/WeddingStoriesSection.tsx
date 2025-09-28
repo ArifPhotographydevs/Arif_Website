@@ -73,8 +73,8 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
                     className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300"
                     onClick={() => handlePlay(leftVideo.videoId)}
                   >
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
                     </div>
@@ -114,8 +114,8 @@ const WeddingStoriesSection: React.FC<WeddingStoriesSectionProps> = ({ navigateT
                     className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300"
                     onClick={() => handlePlay(rightVideo.videoId)}
                   >
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
                     </div>
