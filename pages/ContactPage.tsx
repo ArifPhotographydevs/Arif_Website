@@ -65,8 +65,8 @@ const ContactInfoCard: React.FC<{
 }> = ({ icon, title, children }) => (
   <div className="bg-light-bg dark:bg-dark-bg p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
     {icon}
-    <h3 className="font-bold text-xl mb-2">{title}</h3>
-    <div className="text-light-text/70 dark:text-dark-text/70">{children}</div>
+    <h3 className="font-garamond text-xl font-bold mb-2">{title}</h3>
+    <div className="font-garamond text-light-text/70 dark:text-dark-text/70">{children}</div>
   </div>
 );
 
@@ -76,12 +76,17 @@ const ContactPage: React.FC = () => {
 
   return (
     <section className="py-20 md:py-28 bg-light-secondary-bg dark:bg-dark-secondary-bg">
+      {/* Section Heading on Mobile */}
+      <div className="sm:hidden font-garamond text-5xl font-bold text-stone-800 dark:text-dark-text text-center mt-8 z-10">
+        Arif Photography
+      </div>
+
       <div className="container mx-auto px-6 pt-12">
-        <div className="text-center mb-16">
-          <h1 className="font-garamond text-5xl md:text-7xl font-bold">
+        <div className="hidden sm:block text-center mb-16">
+          <h1 className="font-garamond text-5xl md:text-7xl font-medium">
             Let's Create Together
           </h1>
-          <p className="text-lg text-light-text/70 dark:text-dark-text/70 mt-4 max-w-2xl mx-auto">
+          <p className="font-garamond text-lg text-light-text/70 dark:text-dark-text/70 mt-4 max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? I'd love to hear from you.
           </p>
         </div>
@@ -90,7 +95,7 @@ const ContactPage: React.FC = () => {
           <ContactInfoCard icon={<MailIcon />} title="Email Us">
             <a
               href="mailto:Connect.arifphotography@gmail.com"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors"
+              className="font-garamond hover:text-light-accent dark:hover:text-dark-accent transition-colors"
             >
               Connect.arifphotography@gmail.com
             </a>
@@ -98,13 +103,13 @@ const ContactPage: React.FC = () => {
           <ContactInfoCard icon={<PhoneIcon />} title="Call Us">
             <a
               href="tel:+8341079140"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors"
+              className="font-garamond hover:text-light-accent dark:hover:text-dark-accent transition-colors"
             >
               8341079140
             </a>
           </ContactInfoCard>
           <ContactInfoCard icon={<LocationIcon />} title="Visit Us">
-            <p>
+            <p className="font-garamond">
               4th Floor, Pillar No.1680, Silver Square Building, 36, Cable Bridge Rd,
               Aditya Enclave, Venkatagiri
               <br />
@@ -125,7 +130,7 @@ const ContactPage: React.FC = () => {
             ></iframe>
             <div className="absolute top-4 left-4 p-4 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm rounded-lg">
               <h3 className="font-garamond font-bold text-2xl">Find Our Studio</h3>
-              <p className="text-light-text/70 dark:text-dark-text/70 mt-1">
+              <p className="font-garamond text-light-text/70 dark:text-dark-text/70 mt-1">
                 4th Floor, Pillar No.1680, Silver Square Building, 36, Cable Bridge Rd,
                 Aditya Enclave, Venkatagiri, Jubilee Hills, Hyderabad, Telangana 500033
               </p>
