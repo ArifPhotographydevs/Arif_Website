@@ -16,7 +16,7 @@ import WeddingPhoto from '@/components/WeddingPhoto';
 import WeddingStoriesSection from '@/components/WeddingStoriesSection';
 import WeddingHighlightSection from '@/components/WeddingHighlightSection';
 import WeddingVideoGallerySection from '@/components/WeddingVideoGallerySection';
-import { Instagram, Youtube, Menu, X } from 'lucide-react';
+import { Instagram, Youtube, Menu, X, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 interface HomePageProps {
@@ -117,21 +117,34 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           }`}
         >
           {[
-            { Icon: Instagram, label: 'Instagram', href: 'https://share.google/iT09vihBt3C1LgZ8O' },
-            { Icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@ArifPhotography' },
-            { Icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/+918341079140' },
-          ].map(({ Icon, label, href }, index) => (
-            <a
-              key={index}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 animate-fade-in-up"
-              aria-label={`Follow us on ${label}`}
-              tabIndex={isMobile && !isSidebarOpen ? -1 : 0}
-            >
-              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
-            </a>
+            { Icon: Instagram, label: 'Instagram', href: 'https://share.google/iT09vihBt3C1LgZ8O', external: true },
+            { Icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@ArifPhotography', external: true },
+            { Icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/+918341079140', external: true },
+            { Icon: MapPin, label: 'Location', href: 'Contact', external: false },
+          ].map(({ Icon, label, href, external }, index) => (
+            external ? (
+              <a
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 animate-fade-in-up"
+                aria-label={`Follow us on ${label}`}
+                tabIndex={isMobile && !isSidebarOpen ? -1 : 0}
+              >
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
+              </a>
+            ) : (
+              <button
+                key={index}
+                onClick={() => navigateTo(href as Page)}
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-black dark:bg-white rounded-full flex items-center justify-center hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 animate-fade-in-up"
+                aria-label={`Go to ${label}`}
+                tabIndex={isMobile && !isSidebarOpen ? -1 : 0}
+              >
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white dark:text-gray-900" />
+              </button>
+            )
           ))}
         </div>
       </div>
